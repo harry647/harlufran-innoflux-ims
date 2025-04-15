@@ -1,0 +1,9 @@
+numpy
+reportlab
+openpyxl
+matplotlib
+scipy
+statsmodels
+constraint
+plyer
+pyperclip

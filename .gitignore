@@ -1,0 +1,36 @@
+# Python bytecode and caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Database files
+inventory.db
+
+# Backup and log directories
+backups/
+logs/
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Executables
+*.exe
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Virtual environments
+venv/
+env/
+.env
+
+# Miscellaneous
+*.bak
+*.log
+*.tmp
