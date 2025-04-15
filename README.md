@@ -77,18 +77,18 @@ Settings
 ## Directory Structure
 
 harlufran-innoflux-ims/
-├── inventory.py              # Main application entry point
-├── store_logic.py            # Store inventory logic
-├── lab_logic.py              # Laboratory inventory logic
-├── chemistry_practical.py    # Chemistry practical planning
-├── requirements.txt          # Python dependencies
-├── LICENSE                   # MIT License
-├── .gitignore                # Git exclusions
-├── schema.sql                # Database schema
-├── CONTRIBUTING.md           # Contribution guidelines
-├── inventory.db              # SQLite database (generated on first run)
-├── backups/                  # Database backups
-└── logs/                     # Application logs
+- ├── inventory.py              # Main application entry point
+- ├── store_logic.py            # Store inventory logic
+- ├── lab_logic.py              # Laboratory inventory logic
+- ├── chemistry_practical.py    # Chemistry practical planning
+- ├── requirements.txt          # Python dependencies
+- ├── LICENSE                   # MIT License
+- ├── .gitignore                # Git exclusions
+- ├── schema.sql                # Database schema
+- ├── CONTRIBUTING.md           # Contribution guidelines
+- ├── inventory.db              # SQLite database (generated on first run)
+- ├── backups/                  # Database backups
+- └── logs/                     # Application logs
 
 ## Functions of the Files
 
@@ -199,10 +199,26 @@ This project is licensed under the MIT License. See the  file for details.
 - GitHub: harry647/harlufran-innoflux-ims
 
 ## Installation
+- Install Dependencies
+- Initialize the Database
+- Run inventory.py to create inventory.db in:
+. Windows: C:\Users\<User>\AppData\Roaming\InventoryManagementSystem
+. macOS/Linux: ~/.InventoryManagementSystem
+  
+- Optional: Build Executable
+- Create a standalone executable with PyInstaller:
+- Ensure inventory.db is included for first-time use.
+  
 ### Clone the Repository
 ```bash
 git clone https://github.com/harry647/harlufran-innoflux-ims.git
 cd harlufran-innoflux-ims
 
 [![CI](https://github.com/harry647/harlufran-innoflux-ims/actions/workflows/ci.yml/badge.svg)](https://github.com/harry647/harlufran-innoflux-ims/actions/workflows/ci.yml)
+
+pip install -r requirements.txt
+
+python inventory.py
+
+pyinstaller --onefile --add-data "inventory.db;." inventory.py
 
