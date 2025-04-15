@@ -32,6 +32,7 @@ Login
 - Register new users via the Settings tab after logging in.
   
 Store Inventory
+
 - Navigate to the Store Inventory tab.
 - Add Items: Enter details like name, category, quantity, reorder level, and expiry date.
 - Issue Items: Record issuances to track usage.
@@ -39,6 +40,7 @@ Store Inventory
 - Batch Tracking: Manage item batches with batch numbers and costs.
   
 Laboratory Inventory
+
 - Go to the Laboratory Inventory tab.
 - Manage Items: Add/edit lab items by subject (e.g., Chemistry, Physics), including molarity and purchase units.
 - Plan Practicals: Schedule practicals, specify student numbers, groups, and chemicals, and verify material availability.
@@ -47,6 +49,7 @@ Laboratory Inventory
 - Reports: Generate practical reports or broken item logs, exportable as CSV, Excel, or PDF.
   
 Chemistry Practical Planning
+
 - In the Laboratory Inventory tab, select Plan Chemistry Practical.
 - Select Chemical: Choose from predefined chemicals or enter a custom formula (e.g., H2SO4).
 - Specify Concentration: Enter molarity (M), % w/v, or % v/v, and select flask sizes (e.g., 100 mL, 250 mL).
@@ -56,6 +59,7 @@ Chemistry Practical Planning
 - Output: Save results as text or PDF, copy to clipboard, or clear.
   
 Analysis
+
 - Access the Analysis tab for reports:
 - Stock Summaries: Overview of store and lab inventory.
 - Low Stock Alerts: Identify items below reorder levels.
@@ -65,9 +69,11 @@ Analysis
 - Predictive Reordering: Forecast restocking needs.
   
 History
+
 - View the History tab for an audit trail of actions (e.g., item added, issued, deleted) with timestamps and item IDs.
   
 Settings
+
 - In the Settings tab:
 - Change Theme: Select clam, alt, or default.
 - Toggle Notifications: Enable/disable alerts for low stock or expiries.
@@ -94,9 +100,9 @@ harlufran-innoflux-ims/
 
 inventory.py
 
-. Purpose: Serves as the main entry point for the application, initializing the GUI and database.
+  Purpose: Serves as the main entry point for the application, initializing the GUI and database.
 
-. Key Functions:
+  Key Functions:
 
 - Initializes the SQLite database (inventory.db) with tables for items, users, history, etc.
 - Sets up the Tkinter interface with tabs for Store, Lab, Analysis, History, and Settings.
@@ -106,9 +112,10 @@ inventory.py
   
 store_logic.py
 
-. Purpose: Manages store inventory operations and reporting.
+  Purpose: Manages store inventory operations and reporting.
 
-. Key Functions:
+  Key Functions:
+
 - Adds, edits, deletes, and issues items with details like quantity, category, and expiry date.
 - Tracks item batches with batch numbers, costs, and dates.
 - Generates reports: stock summaries, low stock alerts, category analyses, and issuance trends.
@@ -117,8 +124,9 @@ store_logic.py
   
 lab_logic.py
 
-. Purpose: Handles laboratory inventory and practical planning.
-. Key Functions:
+  Purpose: Handles laboratory inventory and practical planning.
+  
+  Key Functions:
 
 - Manages lab items by subject (e.g., Chemistry, Physics) with molarity and unit details.
 - Plans and schedules lab practicals, verifying material availability for students.
@@ -128,8 +136,10 @@ lab_logic.py
 - Generates reports (practicals, broken items, predictive reordering) exportable as CSV, Excel, or PDF.
   
 chemistry_practical.py
-. Purpose: Provides tools for chemistry practical planning and calculations.
-. Key Functions:
+  
+  Purpose: Provides tools for chemistry practical planning and calculations.
+  
+  Key Functions:
 
 - Calculates solution preparations (molarity, % w/v, % v/v) for specified flask sizes, with detailed steps.
 - Computes molar masses for custom or predefined chemicals using a periodic table dictionary.
@@ -137,41 +147,48 @@ chemistry_practical.py
 - Plans bulk preparations for large classes, accounting for extra volume.
 - Displays safety precautions for chemicals.
 - Outputs results as text, PDF (reportlab), or clipboard (pyperclip).
-- 
+  
 requirements.txt
-. Purpose: Lists Python dependencies required to run the application.
-. Key Functions:
+
+  Purpose: Lists Python dependencies required to run the application.
+  
+  Key Functions:
   
 - Specifies libraries: numpy, reportlab, openpyxl, matplotlib, scipy, statsmodels, constraint, plyer, pyperclip.
 - Enables easy installation with pip install -r requirements.txt.
   
 LICENSE
-. Purpose: Defines the MIT License terms for using and distributing the software.
-. Key Functions:
+
+  Purpose: Defines the MIT License terms for using and distributing the software.
+  
+  Key Functions:
 
 - Grants permission to use, modify, and share the code, retaining the copyright notice.
 - Disclaims warranties and liabilities.
   
 .gitignore
 
-. Purpose: Excludes unnecessary or sensitive files from Git version control.
-. Key Functions:
+  Purpose: Excludes unnecessary or sensitive files from Git version control.
+  
+  Key Functions:
 
 - Ignores generated files (inventory.db, backups/, logs/), Python bytecode (__pycache__, *.pyc), and build artifacts (dist/, *.exe).
 - Prevents committing IDE configs (.vscode/, .idea/) and virtual environments (venv/).
   
 schema.sql
 
-. Purpose: Defines the database schema for manual initialization.
-. Key Functions:
+   Purpose: Defines the database schema for manual initialization.
+  
+  Key Functions:
 
 - Creates tables for items, users, history, etc.
 - Includes default admin user.
   
 CONTRIBUTING.md
 
-. Purpose: Guides contributors on how to contribute.
-. Key Functions:
+   Purpose: Guides contributors on how to contribute.
+   
+   Key Functions:
 
 - Outlines forking, branching, and PR processes.
 - Specifies coding and testing guidelines.
