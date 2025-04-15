@@ -74,6 +74,130 @@ Settings
 - Manage Users: Register new users with unique credentials.
 - Backup: Perform manual database backups (auto-backups occur every 7 days).
 
+## Directory Structure
+
+harlufran-innoflux-ims/
+├── inventory.py              # Main application entry point
+├── store_logic.py            # Store inventory logic
+├── lab_logic.py              # Laboratory inventory logic
+├── chemistry_practical.py    # Chemistry practical planning
+├── requirements.txt          # Python dependencies
+├── LICENSE                   # MIT License
+├── .gitignore                # Git exclusions
+├── schema.sql                # Database schema
+├── CONTRIBUTING.md           # Contribution guidelines
+├── inventory.db              # SQLite database (generated on first run)
+├── backups/                  # Database backups
+└── logs/                     # Application logs
+
+## Functions of the Files
+
+inventory.py
+
+. Purpose: Serves as the main entry point for the application, initializing the GUI and database.
+
+. Key Functions:
+
+- Initializes the SQLite database (inventory.db) with tables for items, users, history, etc.
+- Sets up the Tkinter interface with tabs for Store, Lab, Analysis, History, and Settings.
+- Handles user authentication (login, registration) and session management.
+- Manages backups (manual and auto every 7 days) and logging to inventory_app.log.
+- Coordinates interactions between store and lab modules via StoreLogic and LabLogic classes.
+  
+store_logic.py
+
+. Purpose: Manages store inventory operations and reporting.
+
+. Key Functions:
+- Adds, edits, deletes, and issues items with details like quantity, category, and expiry date.
+- Tracks item batches with batch numbers, costs, and dates.
+- Generates reports: stock summaries, low stock alerts, category analyses, and issuance trends.
+- Supports predictive reordering based on usage patterns.
+- Exports reports as CSV, Excel, or PDF using openpyxl and reportlab.
+  
+lab_logic.py
+
+. Purpose: Handles laboratory inventory and practical planning.
+. Key Functions:
+
+- Manages lab items by subject (e.g., Chemistry, Physics) with molarity and unit details.
+- Plans and schedules lab practicals, verifying material availability for students.
+- Logs and tracks broken items with student details and status.
+- Performs GMP (Good Manufacturing Practices) analysis for compliance.
+- Integrates with chemistry_practical.py for chemical planning.
+- Generates reports (practicals, broken items, predictive reordering) exportable as CSV, Excel, or PDF.
+  
+chemistry_practical.py
+. Purpose: Provides tools for chemistry practical planning and calculations.
+. Key Functions:
+
+- Calculates solution preparations (molarity, % w/v, % v/v) for specified flask sizes, with detailed steps.
+- Computes molar masses for custom or predefined chemicals using a periodic table dictionary.
+- Balances chemical equations using linear algebra (numpy), supporting states (s, l, g, aq).
+- Plans bulk preparations for large classes, accounting for extra volume.
+- Displays safety precautions for chemicals.
+- Outputs results as text, PDF (reportlab), or clipboard (pyperclip).
+- 
+requirements.txt
+. Purpose: Lists Python dependencies required to run the application.
+. Key Functions:
+  
+- Specifies libraries: numpy, reportlab, openpyxl, matplotlib, scipy, statsmodels, constraint, plyer, pyperclip.
+- Enables easy installation with pip install -r requirements.txt.
+  
+LICENSE
+. Purpose: Defines the MIT License terms for using and distributing the software.
+. Key Functions:
+
+- Grants permission to use, modify, and share the code, retaining the copyright notice.
+- Disclaims warranties and liabilities.
+  
+.gitignore
+
+. Purpose: Excludes unnecessary or sensitive files from Git version control.
+. Key Functions:
+
+- Ignores generated files (inventory.db, backups/, logs/), Python bytecode (__pycache__, *.pyc), and build artifacts (dist/, *.exe).
+- Prevents committing IDE configs (.vscode/, .idea/) and virtual environments (venv/).
+  
+schema.sql
+
+. Purpose: Defines the database schema for manual initialization.
+. Key Functions:
+
+- Creates tables for items, users, history, etc.
+- Includes default admin user.
+  
+CONTRIBUTING.md
+
+. Purpose: Guides contributors on how to contribute.
+. Key Functions:
+
+- Outlines forking, branching, and PR processes.
+- Specifies coding and testing guidelines.
+
+Database Schema
+
+- items: id (PK), name, category, quantity, reorder_level, section, subject, last_updated, expiry_date, purchase_unit, molarity, calories, protein
+- issuance: id (PK), item_id (FK), person_name, quantity_issued, issue_date
+- broken_items: id (PK), student_id, student_name, item_id (FK), item_name, report_date, status
+- history: id (PK), action, item_id (FK), details, timestamp
+- users: id (PK), username, password
+- practical_reports: id (PK), subject, form, num_students, topic, subtopic, time, status
+- prices: item_id (FK), price, last_updated
+- invoices: id (PK), supplier, item_id (FK), quantity, price, invoice_date
+- meal_templates: id (PK), name, requirements
+- batches: id (PK), item_id (FK), batch_number, quantity, unit_cost, received_date, expiry_date
+  
+## License
+This project is licensed under the MIT License. See the  file for details.
+
+## Contact
+
+- Maintainer: Harry Oginga
+- Email: harryoginga@gmail.com
+- GitHub: harry647/harlufran-innoflux-ims
+
 ## Installation
 ### Clone the Repository
 ```bash
